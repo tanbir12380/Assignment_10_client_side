@@ -1,0 +1,91 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #000;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide1 {
+  background: url("https://i.ibb.co.com/DPHcc9wD/futuristic-smart-city-with-5g-global-network-technology.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.slide2 {
+  background: url("https://i.ibb.co.com/wFTGM6vS/realistic-water-drop-with-ecosystem.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.slide3 {
+  background: url("https://i.ibb.co.com/bgg5nRwr/photovoltaic-solar-power-panel-field-green-clean-alternative-power-energy-concept-ai-generative.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.slide4 {
+  background: url("https://i.ibb.co.com/BHpXB48L/pollution-industry-exterior-daylight.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.slides {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 150px;
+  padding-bottom: 150px;
+}
+
+.slides > div {
+  background: linear-gradient(120deg, #ffffff00, rgba(11, 69, 184, 0.6));
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.slides h3 {
+  display: block !important;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: "Science Gothic";
+  text-shadow: 5px 5px 18px rgb(27, 27, 27);
+}
+
+.slides p {
+  display: block;
+  text-align: right;
+  font-family: "Inter";
+  text-shadow: 5px 5px 18px rgb(27, 27, 27);
+  padding-bottom: 10px;
+}
