@@ -201,3 +201,57 @@ body {
   font-size: 0.95rem;
   color: var(--text-secondary);
 }
+
+/* trusted banner */
+
+.trusted-container {
+  height: 410px;
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  background-color: var(--bg-accent) !important;
+}
+
+.trusted-title {
+  color: var(--text-white);
+  font-family: "Inter";
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 40px;
+}
+
+.trusted-card {
+  width: 260px;
+  padding: 20px;
+  text-align: center;
+}
+
+.trusted-label,
+.trusted-value,
+.trusted-sub {
+  color: var(--text-white);
+  font-family: "Inter";
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.trusted-label {
+  font-size: 16px;
+}
+.trusted-value {
+  font-size: 64px;
+  font-weight: 800;
+}
+.trusted-sub {
+  font-size: 16px;
+}
