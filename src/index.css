@@ -255,3 +255,71 @@ body {
 .trusted-sub {
   font-size: 16px;
 }
+
+/* why to choose us */
+
+.values-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-primary);
+}
+
+.values-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: var(--text-primary);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 10px var(--shadow-light1);
+  transition: all 0.6s ease;
+}
+
+.value-icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  transition: all 0.6s ease;
+}
+
+.value-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  transition: all 0.6s ease;
+}
+
+.value-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  transition: all 0.6s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px var(--shadow-hover1);
+  background-color: var(--bg-accent);
+}
+
+.value-card:hover .value-heading,
+.value-card:hover .value-text,
+.value-card:hover .value-icon {
+  color: var(--text-white) !important;
+}
