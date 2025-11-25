@@ -11,6 +11,7 @@ const BillDetails = () => {
   const [details, setDetails] = useState({});
 
     const currentDate = new Date().toISOString().split("T")[0];
+     const currentDate1 = new Date().toISOString();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,17 +30,17 @@ const BillDetails = () => {
 
     e.preventDefault();
 
-const email= e.email.value;
-const id = e.id.value;
-const amount = e.amount.value;
-const date =  e.date.value;
-const name = e.name.value;
-const address = e.address.value;
-const phone = e.phone.value;
-const additional = e.additional.value;
+const email= e.target.email.value;
+const billsId = e.target.id.value;
+const amount = parseInt(e.target.amount.value);
+const date =  currentDate1;
+const username = e.target.name.value;
+const address = e.target.address.value;
+const phone = e.target.phone.value;
+const additional = e.target.additional.value;
 
 const dataObj = {
-email,id,amount,date,name,address,phone,additional
+email,billsId,amount,date,username,address,phone,additional
 }
 
 console.log(dataObj);
