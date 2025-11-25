@@ -460,3 +460,85 @@ body {
   background-color: var(--bg-accent);
   color: var(--text-white);
 }
+
+
+/* bill pay section */
+
+.paybill-container {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.paybill-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+  color:black;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+}
+
+.form-group input[readonly] {
+  background: #f8f8f8;
+  cursor: not-allowed;
+}
+
+textarea {
+  resize: none;
+  height: 90px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #1e4fc9;
+}

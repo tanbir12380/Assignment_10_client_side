@@ -1,7 +1,11 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router";
+import { AuthContext } from "./AuthContext";
 
 const Header = () => {
+
+const {user,SignOutFromApp} = useContext(AuthContext);
+
   return (
     <>
       <nav
@@ -21,21 +25,45 @@ const Header = () => {
         </div>
 
         <ul className="hidden md:flex items-center gap-8 text-lg font-medium">
-          <li className="hover:text-blue-600 cursor-pointer">Home</li>
-          <li className="hover:text-blue-600 cursor-pointer">
-            <Link to="/bills">Bills</Link>  
+          <li className=" cursor-pointer">
+            <NavLink to="/">Home</NavLink> 
           </li>
-          <li className="hover:text-blue-600 cursor-pointer">My Pay Bills</li>
-          <li className="hover:text-blue-600 cursor-pointer">
+          <li className=" cursor-pointer">
+            <NavLink to="/bills">Bills</NavLink>
+          </li>
+          <li className=" cursor-pointer">
+            <NavLink to="/mybills">My Bills</NavLink>
+          </li>
+{
+  user &&           <li className=" cursor-pointer">
             <img
-              src="/avatar.png"
+              src={user.photoURL}
               alt="Profile"
               className="w-9 h-9 rounded-full border"
             />
           </li>
-          <li className="bg-red-500 text-white px-4 py-1 rounded-lg cursor-pointer hover:bg-red-600">
+}
+{
+  !user && <>
+             <li className=" cursor-pointer">
+            <NavLink to="/login">Login</NavLink>
+          </li>
+           <li className=" cursor-pointer">
+            <NavLink to="/register">Register</NavLink>
+          </li>
+  </>
+}
+{
+  user &&           <li onClick={()=>{
+      SignOutFromApp()
+                  .then()
+                  .catch((error) => {
+                    console.log(error);
+                  });
+  }} className="text-white px-4 py-1 rounded-lg cursor-pointer ">
             Logout
           </li>
+}
         </ul>
       </nav>
     </>

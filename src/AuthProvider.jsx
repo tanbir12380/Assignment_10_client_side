@@ -9,11 +9,11 @@ import { auth } from "./firebase";
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
-import { createContext } from "react";
+import { AuthContext } from "./AuthContext";
 
-const AuthContext = createContext("");
 
 const provider = new GoogleAuthProvider();
+
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

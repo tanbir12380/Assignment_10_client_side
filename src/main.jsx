@@ -9,6 +9,10 @@ import Home from "./Home.jsx";
 import AllBills from "./AllBills.jsx";
 import BillDetails from "./BillDetails.jsx";
 import AuthProvider from "./AuthProvider.jsx";
+import LogIn from "./LogIn";
+import Registration from "./Register.jsx";
+import MyBills from "./MyBills.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +29,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/bills/:id",
-        element: <BillDetails></BillDetails>,
+        element:<PrivateRoute><BillDetails></BillDetails></PrivateRoute>  ,
       },
+      {
+        path: '/login',
+        element:<LogIn></LogIn>
+      }
+      ,{
+        path:'/register',
+        element:<Registration></Registration>
+      },
+      {
+        path:'/mybills',
+        element:<MyBills></MyBills>
+      }
     ],
   },
 ]);
