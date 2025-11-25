@@ -136,3 +136,68 @@ body {
   width: 100%;
   text-align: center;
 }
+
+/* Recent Bills  */
+
+.recent-bills {
+  padding: 20px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.recent-bills-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.recent-bills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 70%;
+  margin: 0px auto;
+}
+
+/* Bill Card */
+.bill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 4px 6px var(--shadow-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px var(--shadow-hover1);
+}
+
+/* Image */
+.bill-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Details */
+.bill-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bill-title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+.bill-details p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
