@@ -7,6 +7,7 @@ import { RouterProvider } from "react-router/dom";
 import Root from "./Root.jsx";
 import Home from "./Home.jsx";
 import AllBills from "./AllBills.jsx";
+import BillDetails from "./BillDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/bills",
         element: <AllBills></AllBills>,
+      },
+      {
+        path: "/bills/:id",
+        element: <BillDetails></BillDetails>,
       },
     ],
   },

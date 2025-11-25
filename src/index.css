@@ -323,3 +323,140 @@ body {
 .value-card:hover .value-icon {
   color: var(--text-white) !important;
 }
+
+/* Primary Button */
+.btn-primary {
+  background-color: rgba(11, 69, 184, 1);
+  color: #ffffff; /* White text */
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: rgba(11, 69, 184, 0.85); /* Slightly darker */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:disabled {
+  background-color: rgba(11, 69, 184, 0.5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/*  details page*/
+
+/* Bill Details Page */
+.bill-details-page {
+  padding: 40px 20px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.bill-details-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px var(--shadow-light);
+  padding: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bill-details-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px var(--shadow-hover1);
+}
+
+/* Image */
+.bill-details-image img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Content */
+.bill-details-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bill-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bill-category span,
+.bill-email span,
+.bill-location span,
+.bill-date span,
+.bill-amount span {
+  font-weight: 500;
+  color: var(--bg-accent);
+}
+
+.bill-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.bill-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: var(--bg-accent);
+  color: var(--text-white);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--bg-accent);
+  border: 2px solid var(--bg-accent);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-accent);
+  color: var(--text-white);
+}
