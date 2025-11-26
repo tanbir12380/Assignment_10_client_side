@@ -41,8 +41,10 @@ const AuthProvider = ({ children }) => {
         console.log(user1);
         console.log("user is found");
         setUser(user1);
-
-        setLoading(false);
+setTimeout(()=>{
+setLoading(false);
+},1000)
+        
       } else {
         console.log("no user found");
         setUser(null);

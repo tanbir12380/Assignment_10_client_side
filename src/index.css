@@ -176,9 +176,13 @@ body {
   box-shadow: 0 6px 10px var(--shadow-hover1);
 }
 
+.bill-image {
+  width: 100%;
+}
+
 /* Image */
 .bill-image img {
-  width: 100%;
+  width: 100% !important;
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
@@ -189,6 +193,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex: 1;
 }
 
 .bill-title {
@@ -337,6 +342,7 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -461,7 +467,6 @@ body {
   color: var(--text-white);
 }
 
-
 /* bill pay section */
 
 .paybill-container {
@@ -471,7 +476,7 @@ body {
   background: #fff;
   border-radius: 16px;
   border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
 .form-title {
@@ -508,7 +513,7 @@ body {
   font-size: 15px;
   outline: none;
   transition: 0.2s ease;
-  color:black;
+  color: black;
 }
 
 .form-group input:focus,
@@ -541,4 +546,107 @@ textarea {
 
 .submit-btn:hover {
   background: #1e4fc9;
+}
+
+/* modal  */
+
+/* .modal-box{
+  height: 600px !important;
+} */
+
+.paybill-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.paybill-container {
+  margin: 0px !important;
+  width: 100% !important;
+}
+
+/* ================= REGISTER PAGE ================= */
+.register-container {
+  background: var(--bg-primary);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-card {
+  background: var(--bg-secondary);
+  width: 420px;
+  padding: 40px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px var(--shadow-light1);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Input styling */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.register-form input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Terms */
+.terms {
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+/* Button */
+.register-btn {
+  background: var(--bg-accent);
+  color: var(--text-white);
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.register-btn:hover {
+  opacity: 0.9;
+}
+
+/* Login text */
+.login-text {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--text-secondary);
+}
+
+.login-link {
+  color: var(--bg-accent);
+  text-decoration: underline;
+  font-weight: 500;
 }

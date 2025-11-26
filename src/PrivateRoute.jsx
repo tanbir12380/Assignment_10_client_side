@@ -12,8 +12,11 @@ const PrivateRoute = ({ children }) => {
       <div
         style={{
           width: "100%",
+          flex:'1',
           display: "flex",
           justifyContent: "center",
+          alignItems:'center',
+          color:'black'
         }}
       >
         <span className="loading loading-bars loading-xl"></span>

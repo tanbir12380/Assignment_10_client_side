@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/bills",
-        element: <AllBills></AllBills>,
+        element:  <AllBills></AllBills>,
       },
       {
         path: "/bills/:id",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/mybills',
-        element:<MyBills></MyBills>
+        element:<PrivateRoute><MyBills></MyBills></PrivateRoute>
       }
     ],
   },

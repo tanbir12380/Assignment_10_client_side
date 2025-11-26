@@ -31,9 +31,11 @@ const {user,SignOutFromApp} = useContext(AuthContext);
           <li className=" cursor-pointer">
             <NavLink to="/bills">Bills</NavLink>
           </li>
-          <li className=" cursor-pointer">
+{
+  user &&           <li className=" cursor-pointer">
             <NavLink to="/mybills">My Bills</NavLink>
           </li>
+}
 {
   user &&           <li className=" cursor-pointer">
             <img
