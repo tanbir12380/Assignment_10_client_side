@@ -69,7 +69,7 @@ const BillDetails = () => {
     <div>
       {/* <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button> */}
       <dialog ref={btn_ref} id="my_modal_1" className="modal">
-        <div className="modal-box  w-3/4 max-w-3xl">
+        <div className="modal-box">
           <div className="paybill-container">
             <h2 className="form-title">Pay Bill</h2>
 
@@ -142,7 +142,7 @@ const BillDetails = () => {
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
+              <button className="btn btn-primary btn-primary1">Close</button>
             </form>
           </div>
         </div>

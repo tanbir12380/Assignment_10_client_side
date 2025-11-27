@@ -12,16 +12,20 @@ const Root = () => {
   return (
     <div
       style={{
+        height: "100%",
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
-        justifyContent: "space-between",
-        backgroundColor: "white",
       }}
       className="rootDiv"
     >
       <Header></Header>
-      <Outlet></Outlet>
+      <div
+        style={{
+          flex: "1",
+        }}
+      >
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
       <ToastContainer />
     </div>

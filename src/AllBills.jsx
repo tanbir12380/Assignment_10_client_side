@@ -62,6 +62,21 @@ const AllBills = () => {
         >
           All Bills
         </h2>
+
+        <div className="dropdown dropdown-bottom">
+          <div tabIndex={0} role="button" className="btn">
+            Click
+          </div>
+          <ul tabIndex="-1" className="dropdown-content menu ">
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <a>Item 2</a>
+            </li>
+          </ul>
+        </div>
+
         <div className="recent-bills-list">
           {recentData.map((data, index) => (
             <div className="bill-card" key={index}>

@@ -96,6 +96,14 @@ const MyBills = () => {
       {/* ============= MODAL OUTSIDE OF MAP ============= */}
 
       <div>
+        <h2
+          style={{
+            textAlign: "center",
+          }}
+          className="recent-bills-title"
+        >
+          All Bills
+        </h2>
         <dialog ref={btn_ref} id="my_modal_1" className="modal">
           <div className="modal-box w-3/4">
             <div className="paybill-container">

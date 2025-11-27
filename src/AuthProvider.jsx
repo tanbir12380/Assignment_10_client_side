@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "./firebase";
 import { useState } from "react";
@@ -11,9 +12,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import { AuthContext } from "./AuthContext";
 
-
 const provider = new GoogleAuthProvider();
-
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -31,6 +30,13 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const updateUsersDetails = (user11, name, photo) => {
+    return updateProfile(user11, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   const SignOutFromApp = () => {
     return signOut(auth);
   };
@@ -41,13 +47,13 @@ const AuthProvider = ({ children }) => {
         console.log(user1);
         console.log("user is found");
         setUser(user1);
-setTimeout(()=>{
-setLoading(false);
-},1000)
-        
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       } else {
         console.log("no user found");
         setUser(null);
+        setLoading(false);
       }
     });
 
@@ -63,6 +69,7 @@ setLoading(false);
     SignOutFromApp,
     loading,
     signInWithGoogle,
+    updateUsersDetails,
   };
 
   return (

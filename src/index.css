@@ -14,6 +14,7 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-white: #ffffff;
+  --border-secondary: rgba(71, 85, 105, 0.35);
 
   --shadow-light: rgba(0, 0, 0, 0.25);
   --shadow-hover1: rgba(0, 0, 0, 0.3);
@@ -29,8 +30,9 @@
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-white: #ffffff;
+  --border-secondary: rgba(203, 213, 225, 0.35);
 
-  --shadow-light: rgba(255, 255, 255, 0.15);
+  --shadow-light: rgba(96, 96, 96, 0.15);
   --shadow-hover1: rgba(255, 255, 255, 0);
   --shadow-light1: rgba(255, 255, 255, 0);
 }
@@ -38,6 +40,27 @@
 body {
   background-color: var(--bg-primary);
   height: auto;
+  font-family: "Inter" !important;
+}
+
+#root {
+  height: 100% !important;
+}
+
+.rootDiv {
+  background-color: var(--bg-primary);
+}
+
+.slides a {
+  margin-top: 10px;
+}
+
+.slides p {
+  padding-bottom: 25px !important;
+}
+
+.slides {
+  padding-right: 80px !important;
 }
 
 /* Footer Styles */
@@ -166,9 +189,10 @@ body {
   gap: 15px;
   padding: 15px;
   border-radius: 10px;
-  background-color: var(--bg-secondary);
-  box-shadow: 0 4px 6px var(--shadow-light);
+  background-color: var(--bg-secondary) !important;
+  box-shadow: 2px 4px 6px var(--shadow-light) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border-secondary) !important;
 }
 
 .bill-card:hover {
@@ -210,7 +234,6 @@ body {
 /* trusted banner */
 
 .trusted-container {
-  height: 410px;
   width: 100%;
   padding: 40px 0;
   display: flex;
@@ -280,7 +303,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  max-width: 80%;
+  max-width: 70%;
   margin: 0 auto;
 }
 
@@ -308,6 +331,7 @@ body {
   margin-bottom: 10px;
   color: var(--text-primary);
   transition: all 0.6s ease;
+  font-family: "Inter";
 }
 
 .value-text {
@@ -343,6 +367,13 @@ body {
     box-shadow 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
   width: 100%;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.btn-primary1 {
+  width: 150px !important ;
 }
 
 .btn-primary:hover {
@@ -469,16 +500,6 @@ body {
 
 /* bill pay section */
 
-.paybill-container {
-  max-width: 550px;
-  margin: 40px auto;
-  padding: 25px;
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-}
-
 .form-title {
   text-align: center;
   font-size: 26px;
@@ -595,6 +616,10 @@ textarea {
   font-weight: 600;
 }
 
+.register-form label {
+  color: var(--text-primary);
+}
+
 /* Input styling */
 .register-form input[type="text"],
 .register-form input[type="email"],
@@ -610,6 +635,11 @@ textarea {
 
 .register-form input::placeholder {
   color: var(--text-secondary);
+}
+
+#profile-tooltip,
+.react-tooltip {
+  z-index: 9999 !important;
 }
 
 /* Terms */
@@ -649,4 +679,67 @@ textarea {
   color: var(--bg-accent);
   text-decoration: underline;
   font-weight: 500;
+}
+
+nav {
+  padding-left: 80px;
+  padding-right: 80px;
+  font-family: "Inter";
+}
+
+nav a {
+  color: white;
+  padding: 8px 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+nav a.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+
+.recent-bills-title,
+.values-title {
+  font-family: "Inter";
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.recent-bills-title {
+  margin-top: 50px;
+}
+
+.bill-details {
+  flex: 1;
+}
+
+.bill-title {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.slides {
+  text-align: right !important;
+}
+
+.modal-box {
+  width: auto !important; /* grow based on content */
+  height: auto;
+  background-color: var(--bg-primary);
+  box-sizing: content-box;
+}
+
+.modal-action {
+  justify-content: center;
 }

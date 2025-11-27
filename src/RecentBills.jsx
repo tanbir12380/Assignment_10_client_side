@@ -25,7 +25,8 @@ const RecentBills = () => {
 
     if (month1 == month2) {
       navigate(`/bills/${data._id}`);
-    } else if (month1 > month2) {toast("The billing month hasn't arrived yet.")
+    } else if (month1 > month2) {
+      toast("The billing month hasn't arrived yet.");
     } else {
       toast("The billing month has already passed.");
     }
@@ -33,7 +34,14 @@ const RecentBills = () => {
 
   return (
     <div className="recent-bills">
-      <h2 className="recent-bills-title">Recent Bills</h2>
+      <h2
+        style={{
+          textAlign: "center",
+        }}
+        className="recent-bills-title"
+      >
+        Recent Bills
+      </h2>
       <div className="recent-bills-list">
         {recentData.map((data, index) => (
           <div className="bill-card" key={index}>
@@ -45,15 +53,15 @@ const RecentBills = () => {
               <p>Category: {data.category}</p>
               <p>Location: {data.location}</p>
               <p>Date: {format(new Date(data.date), "dd/MM/yy")}</p>
-              <button
-                onClick={() => {
-                  handleButtonClick(data);
-                }}
-                className="btn-primary"
-              >
-                See Details
-              </button>
             </div>
+            <button
+              onClick={() => {
+                handleButtonClick(data);
+              }}
+              className="btn-primary"
+            >
+              See Details
+            </button>
           </div>
         ))}
       </div>
