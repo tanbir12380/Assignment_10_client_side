@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext";
 import { Tooltip } from "react-tooltip";
 import Switch from "./themeToggole";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { user, SignOutFromApp } = useContext(AuthContext);
   const PLACES = [
     "top",
@@ -15,58 +17,68 @@ const Header = () => {
     "right-end",
   ];
   return (
-    <nav
-      style={{
-        backgroundColor: "rgba(11, 68, 184)",
-      }}
-      className="w-full shadow-md px-6 py-3 flex items-center justify-between"
-    >
-      <div className="text-2xl font-bold tracking-wide">
-        <img
-          style={{
-            height: "50px",
-          }}
-          src="logo.png"
-          alt="Logo"
-        />
-      </div>
+    <>
+      <nav
+        style={{
+          backgroundColor: "rgba(11, 68, 184)",
+        }}
+        className="main-nav w-full shadow-md px-6 py-3 flex items-center justify-between"
+      >
+        <div className="text-2xl font-bold tracking-wide">
+          <img
+            onClick={() => {
+              navigate("/");
+            }}
+            style={{
+              height: "50px",
+              cursor: "pointer",
+            }}
+            src="/logo.png"
+            alt="Logo"
+          />
+        </div>
 
-      <ul className="hidden md:flex items-center text-lg font-medium">
-        <li className="cursor-pointer">
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li className="cursor-pointer">
-          <NavLink to="/bills">Bills</NavLink>
-        </li>
+        <ul className="header-container-ul hidden md:flex items-center text-lg font-medium">
+          <li className="cursor-pointer">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="cursor-pointer">
+            <NavLink to="/bills">Bills</NavLink>
+          </li>
 
-        <Switch></Switch>
+          {user && (
+            <>
+              <li className="cursor-pointer">
+                <NavLink to="/mybills">My Bills</NavLink>
+              </li>
 
-        {user && (
-          <>
-            <li className="cursor-pointer">
-              <NavLink to="/mybills">My Bills</NavLink>
-            </li>
+              <li
+                id="profile-tooltip"
+                style={{
+                  marginLeft: "8px",
+                  marginRight: "8px",
+                }}
+                className="cursor-pointer"
+              >
+                <img
+                  src={user?.photoURL}
+                  alt="Profile"
+                  className="w-9 h-9 rounded-full border"
+                />
+              </li>
 
-            <li
-              id="profile-tooltip"
-              style={{
-                marginLeft: "8px",
-                marginRight: "8px",
-              }}
-              className="cursor-pointer"
-            >
-              <img
-                src={user?.photoURL}
-                alt="Profile"
-                className="w-9 h-9 rounded-full border"
+              <Tooltip
+                anchorSelect="#profile-tooltip"
+                content={user.displayName}
               />
-            </li>
+            </>
+          )}
 
-            <Tooltip
-              anchorSelect="#profile-tooltip"
-              content={user.displayName}
-            />
+          <li>
+            <Switch></Switch>
+          </li>
 
+          {user && (
             <li
               onClick={() => {
                 SignOutFromApp().catch((error) => console.log(error));
@@ -75,21 +87,106 @@ const Header = () => {
             >
               Logout
             </li>
-          </>
-        )}
+          )}
 
-        {!user && (
-          <>
+          {!user && (
+            <>
+              <li className="cursor-pointer">
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li className="cursor-pointer">
+                <NavLink to="/register">Register</NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+
+        <a id="btn-90" href="#side">
+          <GiHamburgerMenu id="hamb" />
+        </a>
+      </nav>
+
+      <aside id="side">
+        <header>
+          <a id="btn-90" href="#">
+            <GiHamburgerMenu id="hamb" />
+          </a>
+        </header>
+        <nav>
+          <ul
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {user && (
+              <>
+                <li
+                  id="profile-tooltip"
+                  style={{
+                    marginLeft: "8px",
+                    marginRight: "8px",
+                  }}
+                  className="cursor-pointer"
+                >
+                  <img
+                    src={user?.photoURL}
+                    alt="Profile"
+                    className="w-9 h-9 rounded-full border"
+                  />
+                </li>
+
+                <Tooltip
+                  anchorSelect="#profile-tooltip"
+                  content={user.displayName}
+                />
+              </>
+            )}
+
             <li className="cursor-pointer">
-              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li className="cursor-pointer">
-              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/bills">Bills</NavLink>
             </li>
-          </>
-        )}
-      </ul>
-    </nav>
+
+            {user && (
+              <li className="cursor-pointer">
+                <NavLink to="/mybills">My Bills</NavLink>
+              </li>
+            )}
+
+            <li>
+              <Switch></Switch>
+            </li>
+
+            {user && (
+              <>
+                <li
+                  onClick={() => {
+                    SignOutFromApp().catch((error) => console.log(error));
+                  }}
+                  className="text-white px-4 py-1 rounded-lg cursor-pointer"
+                >
+                  Logout
+                </li>
+              </>
+            )}
+
+            {!user && (
+              <>
+                <li className="cursor-pointer">
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li className="cursor-pointer">
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </aside>
+    </>
   );
 };
 

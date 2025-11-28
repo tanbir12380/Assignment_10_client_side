@@ -1,18 +1,16 @@
-.bill-card {
+.mybill-card {
   width: 100%;
   max-width: 900px;
   margin: 20px auto;
-  background: white;
   border: 1px solid #dcdcdc;
   border-radius: 16px;
   padding: 18px;
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Left image */
 .bill-card-image img {
   width: 160px;
   height: 160px;
@@ -20,37 +18,26 @@
   border-radius: 14px;
 }
 
-/* Right content */
-.bill-card-content {
+.mybill-card-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.bill-card-content h2 {
+.mybill-card-content h2 {
   font-size: 22px;
   font-weight: 700;
-  color: #333;
 }
 
-.bill-info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px 25px;
-}
-
-.bill-info-grid p {
+.mybill-info-grid p {
   font-size: 15px;
-  color: #444;
 }
 
-.bill-info-grid span {
+.mybill-info-grid span {
   font-weight: 600;
-  color: #222;
 }
 
-/* Buttons */
 .bill-buttons {
   display: flex;
   gap: 12px;

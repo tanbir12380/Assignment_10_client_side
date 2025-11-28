@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { FaLocationArrow } from "react-icons/fa";
+import { RiCalendarLine } from "react-icons/ri";
 
 const RecentBills = () => {
   const [recentData, setRData] = useState([]);
@@ -50,9 +52,23 @@ const RecentBills = () => {
             </div>
             <div className="bill-details">
               <h4 className="bill-title">{data.title}</h4>
-              <p>Category: {data.category}</p>
-              <p>Location: {data.location}</p>
-              <p>Date: {format(new Date(data.date), "dd/MM/yy")}</p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                }}
+              >
+                <p className="bill-category-pro">{data.category}</p>
+                <div className="bill-date-pro">
+                  <FaLocationArrow />
+
+                  <p>{data.location}</p>
+                </div>
+              </div>
+              <div style={{ marginTop: "10px" }} className="bill-date-pro">
+                <RiCalendarLine />
+                <p>{format(new Date(data.date), "dd/MM/yy")}</p>
+              </div>
             </div>
             <button
               onClick={() => {

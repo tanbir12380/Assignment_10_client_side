@@ -33,18 +33,6 @@ const Switch = () => {
             defaultValue="dark"
             onChange={handleToggle}
           />
-          <span className="theme__fill" />
-          <span className="theme__icon">
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-            <span className="theme__icon-part" />
-          </span>
         </span>
       </label>
     </StyledWrapper>

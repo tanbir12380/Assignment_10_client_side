@@ -61,13 +61,12 @@ const LogIn = () => {
 
           <p className="login-text">
             New to our website?{" "}
-            <Link className="login-link" to="/registration">
+            <Link className="login-link" to="/register">
               Register
             </Link>
           </p>
         </form>
 
-        {/* Google Login Button */}
         <button
           onClick={signWithGoogle1}
           className="register-btn"

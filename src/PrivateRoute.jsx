@@ -10,13 +10,14 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div
+        className="loaders3"
         style={{
           width: "100%",
-          flex:'1',
+          flex: "1",
           display: "flex",
           justifyContent: "center",
-          alignItems:'center',
-          color:'black'
+          alignItems: "center",
+          height: "500px",
         }}
       >
         <span className="loading loading-bars loading-xl"></span>

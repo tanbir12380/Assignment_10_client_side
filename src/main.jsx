@@ -25,24 +25,32 @@ const router = createBrowserRouter([
       },
       {
         path: "/bills",
-        element:  <AllBills></AllBills>,
+        element: <AllBills></AllBills>,
       },
       {
         path: "/bills/:id",
-        element:<PrivateRoute><BillDetails></BillDetails></PrivateRoute>  ,
+        element: (
+          <PrivateRoute>
+            <BillDetails></BillDetails>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/login',
-        element:<LogIn></LogIn>
-      }
-      ,{
-        path:'/register',
-        element:<Registration></Registration>
+        path: "/login",
+        element: <LogIn></LogIn>,
       },
       {
-        path:'/mybills',
-        element:<PrivateRoute><MyBills></MyBills></PrivateRoute>
-      }
+        path: "/register",
+        element: <Registration></Registration>,
+      },
+      {
+        path: "/mybills",
+        element: (
+          <PrivateRoute>
+            <MyBills></MyBills>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

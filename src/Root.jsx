@@ -20,6 +20,7 @@ const Root = () => {
     >
       <Header></Header>
       <div
+        className="rootDivJunior"
         style={{
           flex: "1",
         }}
