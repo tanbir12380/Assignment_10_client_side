@@ -4,6 +4,8 @@ import { AuthContext } from "./AuthContext";
 import "./MyBills.css";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const MyBills = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +17,54 @@ const MyBills = () => {
   const [loader, setLoader] = useState(true);
 
   const btn_ref = useRef();
+
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+
+    if (mybill.length === 0) {
+      doc.text("No billing data found.", 14, 30);
+      doc.save("billing-data.pdf");
+      return;
+    }
+
+    const columns = [
+      { header: "Bill ID", dataKey: "billsId" },
+      { header: "User", dataKey: "username" },
+      { header: "Phone", dataKey: "phone" },
+      { header: "Address", dataKey: "address" },
+      { header: "Email", dataKey: "email" },
+      { header: "Date", dataKey: "date" },
+      { header: "Amount", dataKey: "amount" },
+    ];
+
+    const rows = mybill.map((item) => ({
+      ...item,
+      date: new Date(item.date).toLocaleDateString(),
+    }));
+
+    doc.setFontSize(14);
+    doc.text("Billing Informations", 85, 15);
+
+    autoTable(doc, {
+      columns,
+      body: rows,
+      startY: 20,
+      theme: "grid",
+      margin: { left: 1, right: 1 },
+      tableWidth: "auto",
+      styles: {
+        fontSize: 8,
+      },
+    });
+
+    doc.text(
+      `Total bill amount: ${totalPay} BDT`,
+      75,
+      doc.lastAutoTable.finalY + 10
+    );
+
+    doc.save("billing-data.pdf");
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3000/mybills/${user.email}`)
@@ -366,7 +416,9 @@ const MyBills = () => {
               margin: "10px auto",
             }}
           >
-            <button className="btn-primary">Download PDF</button>
+            <button onClick={handleDownloadPDF} className="btn-primary">
+              Download PDF
+            </button>
           </div>
         </>
       )}
