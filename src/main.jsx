@@ -13,6 +13,7 @@ import LogIn from "./LogIn";
 import Registration from "./Register.jsx";
 import MyBills from "./MyBills.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import Example from "./NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Example></Example>,
   },
 ]);
 
