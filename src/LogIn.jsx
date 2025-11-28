@@ -14,25 +14,18 @@ const LogIn = () => {
 
     SignInUser(email, password)
       .then((respose) => {
-        console.log("user is logged in, here is the details", respose.user);
         event.target.reset();
         navigate(location.state || "/");
       })
       .catch((error) => {
-        console.log("error found", error.message);
         toast(error.message.slice(9));
       });
   };
 
   const signWithGoogle1 = () => {
-    signInWithGoogle()
-      .then((result) => {
-        console.log(result.user);
-        navigate(location.state || "/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    signInWithGoogle().then((result) => {
+      navigate(location.state || "/");
+    });
   };
 
   return (

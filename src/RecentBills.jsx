@@ -23,8 +23,6 @@ const RecentBills = () => {
     const month1 = format(new Date(data.date), "MM");
     const month2 = new Date().getMonth() + 1;
 
-    console.log(month1, month2, "from allBillsPage,line 25");
-
     if (month1 == month2) {
       navigate(`/bills/${data._id}`);
     } else if (month1 > month2) {

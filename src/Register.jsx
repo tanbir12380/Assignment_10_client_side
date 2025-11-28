@@ -30,20 +30,12 @@ const Registration = () => {
       createUser(email, password)
         .then((respose) => {
           const user11 = respose.user;
-          console.log("user is created, here is the details", respose.user);
+
           updateUsersDetails(user11, name, photo)
-            .then((response1) => {
-              console.log(
-                "here is the result after updating profile",
-                response1
-              );
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+            .then((response1) => {})
+            .catch((error) => {});
         })
         .catch((error) => {
-          console.log("error found", error.message);
           toast(error.message.slice(9));
         });
     } else {
@@ -54,12 +46,9 @@ const Registration = () => {
   const signWithGoogle1 = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
         navigate(location.state || "/");
       })
       .catch((error) => {
-        console.log(error);
-
         toast(error.message.slice(9));
       });
   };

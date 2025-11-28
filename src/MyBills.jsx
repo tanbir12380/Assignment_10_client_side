@@ -73,7 +73,6 @@ const MyBills = () => {
         setmybill(data1);
         let totalTemp = 0;
         data1.map((data) => {
-          console.log(data.amount);
           totalTemp = totalTemp + parseInt(data.amount);
         });
 
@@ -106,8 +105,6 @@ const MyBills = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("after update --->", data);
-
         Swal.fire("Bill is updated successfully", "", "success");
         settoggle(!toggle);
 

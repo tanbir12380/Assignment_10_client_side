@@ -44,14 +44,11 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user1) => {
       if (user1) {
-        console.log(user1);
-        console.log("user is found");
         setUser(user1);
         setTimeout(() => {
           setLoading(false);
         }, 1000);
       } else {
-        console.log("no user found");
         setUser(null);
         setLoading(false);
       }

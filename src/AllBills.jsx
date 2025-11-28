@@ -14,7 +14,6 @@ const AllBills = () => {
       setLoader1(true);
       const res = await fetch("http://localhost:3000/bills");
       const data1 = await res.json();
-      console.log(data1);
       setRData(data1);
       setTimeout(() => {
         setLoader1(false);
@@ -35,15 +34,8 @@ const AllBills = () => {
   };
 
   const handleButtonClick = (data) => {
-    const month1 = format(new Date(data.date), "MM");
-    const month2 = new Date().getMonth() + 1;
-
-    console.log(month1, month2, "from allBillsPage,line 25");
-
     navigate(`/bills/${data._id}`);
   };
-
-  console.log(recentData);
 
   return (
     <div className="recent-bills">

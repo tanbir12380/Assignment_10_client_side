@@ -45,9 +45,6 @@ const BillDetails = () => {
     fetchData();
   }, [id]);
 
-  console.log(id);
-  console.log(details);
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -69,8 +66,6 @@ const BillDetails = () => {
       phone,
     };
 
-    console.log(dataObj);
-
     await fetch("http://localhost:3000/mybills", {
       method: "POST",
       headers: {
@@ -79,9 +74,7 @@ const BillDetails = () => {
       body: JSON.stringify(dataObj),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log("posted data ->", data);
-      });
+      .then((data) => {});
 
     Swal.fire("Bill is paid successfully", "", "success");
 

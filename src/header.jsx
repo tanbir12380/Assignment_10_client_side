@@ -81,7 +81,7 @@ const Header = () => {
           {user && (
             <li
               onClick={() => {
-                SignOutFromApp().catch((error) => console.log(error));
+                SignOutFromApp();
               }}
               className="text-white px-4 py-1 rounded-lg cursor-pointer"
             >
@@ -164,7 +164,7 @@ const Header = () => {
               <>
                 <li
                   onClick={() => {
-                    SignOutFromApp().catch((error) => console.log(error));
+                    SignOutFromApp();
                   }}
                   className="text-white px-4 py-1 rounded-lg cursor-pointer"
                 >
