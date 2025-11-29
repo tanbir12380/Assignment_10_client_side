@@ -19,7 +19,9 @@ const BillDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:3000/bills/${id}`);
+      const res = await fetch(
+        `https://utility-billing-app-server.vercel.app/bills/${id}`
+      );
       const data1 = await res.json();
       setDetails(data1);
 
@@ -66,7 +68,7 @@ const BillDetails = () => {
       phone,
     };
 
-    await fetch("http://localhost:3000/mybills", {
+    await fetch("https://utility-billing-app-server.vercel.app/mybills", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -172,7 +174,7 @@ const BillDetails = () => {
                 <div className="form-group">
                   <label>Phone</label>
                   <input
-                    type="number"
+                    type="text"
                     name="phone"
                     placeholder="Enter your phone number"
                     required

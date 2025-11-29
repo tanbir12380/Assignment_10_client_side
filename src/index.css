@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* --------------------------------------------------
-   THEME VARIABLES
--------------------------------------------------- */
-
 /* Light Theme */
 .theme-light {
   --bg-primary: #cbcbcb;
@@ -35,6 +31,7 @@
   --bg-accent3: rgb(255, 255, 255);
 
   --text-primary: #ffffff;
+  --text-primary1: rgb(184, 184, 184);
   --text-secondary: #cbd5e1;
   --text-white: #ffffff;
   --border-secondary: rgba(203, 213, 225, 0.35);
@@ -408,7 +405,7 @@ body {
 /* Primary Button */
 .btn-primary {
   background-color: rgba(11, 69, 184, 1);
-  color: #ffffff; /* White text */
+  color: #ffffff;
   padding: 10px 20px;
   font-weight: 500;
   border: none;
@@ -428,7 +425,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: rgba(11, 69, 184, 0.85); /* Slightly darker */
+  background-color: rgba(11, 69, 184, 0.85);
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
@@ -443,8 +440,6 @@ body {
   cursor: not-allowed;
   box-shadow: none;
 }
-
-/*  details page*/
 
 /* Bill Details Page */
 .bill-details-page {
@@ -620,10 +615,6 @@ textarea {
 
 /* modal  */
 
-/* .modal-box{
-  height: 600px !important;
-} */
-
 .paybill-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -634,7 +625,7 @@ textarea {
   width: 100% !important;
 }
 
-/* ================= REGISTER PAGE ================= */
+/* REGISTER PAGE  */
 .register-container {
   background: var(--bg-primary);
   padding: 40px 20px;
@@ -782,7 +773,7 @@ nav a.active {
 }
 
 .modal-box {
-  width: auto !important; /* grow based on content */
+  width: auto !important;
   height: auto;
   background-color: var(--bg-secondary);
   box-sizing: content-box;
@@ -1013,20 +1004,19 @@ nav a.active {
 
 #side {
   position: fixed;
-  background-color: rgb(29, 25, 25);
-  /*width: 100%;*/
+  background-color: rgb(23, 30, 48) !important;
+
   width: 250px;
   height: 100%;
   top: 0px;
   right: 0px;
-  /*display: none;*/
+
   transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
   z-index: 999 !important;
 }
 
 #side:target {
-  /*display: block;*/
   transform: translateX(0);
 }
 
@@ -1041,6 +1031,10 @@ nav a.active {
 
 #side ul li {
   margin: 10px;
+}
+
+#side a {
+  color: white !important;
 }
 
 #side header {

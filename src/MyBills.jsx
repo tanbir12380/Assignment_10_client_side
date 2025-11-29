@@ -67,7 +67,7 @@ const MyBills = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/mybills/${user.email}`)
+    fetch(`https://utility-billing-app-server.vercel.app/mybills/${user.email}`)
       .then((res) => res.json())
       .then((data1) => {
         setmybill(data1);
@@ -96,13 +96,16 @@ const MyBills = () => {
       phone: e.target.phone.value,
     };
 
-    fetch(`http://localhost:3000/mybills/${mybillCurrent._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedData),
-    })
+    fetch(
+      `https://utility-billing-app-server.vercel.app/mybills/${mybillCurrent._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         Swal.fire("Bill is updated successfully", "", "success");
@@ -129,7 +132,7 @@ const MyBills = () => {
           icon: "success",
         });
 
-        fetch(`http://localhost:3000/mybills/${id}`, {
+        fetch(`https://utility-billing-app-server.vercel.app/mybills/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -172,7 +175,7 @@ const MyBills = () => {
       ) : (
         <>
           <dialog ref={btn_ref} id="my_modal_1" className="modal">
-            <div className="modal-box w-3/4">
+            <div key={mybillCurrent._id} className="modal-box w-3/4">
               <div className="paybill-container">
                 <h2 className="form-title">Update Bill</h2>
 
@@ -243,7 +246,7 @@ const MyBills = () => {
                   <div className="form-group">
                     <label>Phone</label>
                     <input
-                      type="number"
+                      type="text"
                       name="phone"
                       defaultValue={mybillCurrent.phone}
                     />

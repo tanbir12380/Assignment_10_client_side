@@ -12,7 +12,9 @@ const AllBills = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoader1(true);
-      const res = await fetch("http://localhost:3000/bills");
+      const res = await fetch(
+        "https://utility-billing-app-server.vercel.app/bills"
+      );
       const data1 = await res.json();
       setRData(data1);
       setTimeout(() => {
@@ -25,7 +27,9 @@ const AllBills = () => {
 
   const handleCategorySelect = async (category) => {
     setLoader1(true);
-    const res = await fetch(`http://localhost:3000/billsCategory/${category}`);
+    const res = await fetch(
+      `https://utility-billing-app-server.vercel.app/billsCategory/${category}`
+    );
     const data1 = await res.json();
     setRData(data1);
     setTimeout(() => {

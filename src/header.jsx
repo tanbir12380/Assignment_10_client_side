@@ -70,6 +70,7 @@ const Header = () => {
               <Tooltip
                 anchorSelect="#profile-tooltip"
                 content={user.displayName}
+                place="bottom"
               />
             </>
           )}
