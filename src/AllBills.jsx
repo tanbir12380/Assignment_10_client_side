@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { FaLocationArrow } from "react-icons/fa";
 import { RiCalendarLine } from "react-icons/ri";
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 import { FaArrowDown } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext";
 const AllBills = () => {
+  const { user, setUserLocation } = useContext(AuthContext);
+
   const [recentData, setRData] = useState([]);
   const [loader1, setLoader1] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
+    if (!user) {
+      setUserLocation(location.pathname);
+    }
+
     const fetchData = async () => {
       setLoader1(true);
       const res = await fetch(
