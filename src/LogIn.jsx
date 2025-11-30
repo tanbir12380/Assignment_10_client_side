@@ -28,6 +28,8 @@ const LogIn = () => {
     });
   };
 
+  console.log(location);
+
   return (
     <div className="register-container">
       <div className="register-card">

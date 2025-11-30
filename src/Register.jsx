@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext";
 import { toast } from "react-toastify";
+import { useLocation } from "react-router";
 
 const Registration = () => {
   const { createUser, updateUsersDetails, signInWithGoogle } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -32,7 +34,9 @@ const Registration = () => {
           const user11 = respose.user;
 
           updateUsersDetails(user11, name, photo)
-            .then((response1) => {})
+            .then((response1) => {
+              navigate(location.state || "/");
+            })
             .catch((error) => {});
         })
         .catch((error) => {
@@ -52,6 +56,8 @@ const Registration = () => {
         toast(error.message.slice(9));
       });
   };
+
+  console.log(location);
 
   return (
     <div className="register-container">

@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { PiXLogoBold } from "react-icons/pi";
+import { NavLink } from "react-router";
 
 function Footer() {
   return (
@@ -27,10 +28,10 @@ function Footer() {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <NavLink href="/">Home</NavLink>
             </li>
             <li>
-              <a href="/bills">All Bills</a>
+              <NavLink to="/bills">All Bills</NavLink>
             </li>
             <li>
               <a>Pay Bills</a>
