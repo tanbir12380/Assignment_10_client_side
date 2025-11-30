@@ -4,7 +4,8 @@ import { AuthContext } from "./AuthContext";
 import { toast } from "react-toastify";
 
 const LogIn = () => {
-  const { SignInUser, signInWithGoogle } = useContext(AuthContext);
+  const { SignInUser, signInWithGoogle, userLocationS, setUserLocation } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const handleSignIn = (event) => {
@@ -15,7 +16,8 @@ const LogIn = () => {
     SignInUser(email, password)
       .then((respose) => {
         event.target.reset();
-        navigate(location.state || "/");
+        navigate(userLocationS || "/");
+        setUserLocation(null);
       })
       .catch((error) => {
         toast(error.message.slice(9));
@@ -24,11 +26,10 @@ const LogIn = () => {
 
   const signWithGoogle1 = () => {
     signInWithGoogle().then((result) => {
-      navigate(location.state || "/");
+      navigate(userLocationS || "/");
+      setUserLocation(null);
     });
   };
-
-  console.log(location);
 
   return (
     <div className="register-container">

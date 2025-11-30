@@ -5,8 +5,13 @@ import { toast } from "react-toastify";
 import { useLocation } from "react-router";
 
 const Registration = () => {
-  const { createUser, updateUsersDetails, signInWithGoogle } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    updateUsersDetails,
+    signInWithGoogle,
+    userLocationS,
+    setUserLocation,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,7 +40,8 @@ const Registration = () => {
 
           updateUsersDetails(user11, name, photo)
             .then((response1) => {
-              navigate(location.state || "/");
+              navigate(userLocationS || "/");
+              setUserLocation(null);
             })
             .catch((error) => {});
         })
@@ -50,14 +56,13 @@ const Registration = () => {
   const signWithGoogle1 = () => {
     signInWithGoogle()
       .then((result) => {
-        navigate(location.state || "/");
+        navigate(userLocationS || "/");
+        setUserLocation(null);
       })
       .catch((error) => {
         toast(error.message.slice(9));
       });
   };
-
-  console.log(location);
 
   return (
     <div className="register-container">
